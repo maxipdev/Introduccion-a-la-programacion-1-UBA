@@ -1,0 +1,27 @@
+### GUIA 4
+
+-- Ejericicio 9:
+preguntar si esta birn hecho asi el problema y si no afecta el uso del paramtro nuevo_num como una variable
+
+-- Ejericicio 11
+preguntar si se puedfen añadir constantes en funcional o si es solo por el ejercicio 
+
+-- Preguntar si es valido hacer esto: !! para indexacion
+--->>>> Solucion : 
+indice :: [a] -> Int -> a
+indice (x:_) 0 = x
+indice (_:xs) n = indice xs (n - 1)
+
+---->>>> Solucion para lenght 
+miLength :: [a] -> Int
+miLength [] = 0
+miLength (_:xs) = 1 + miLength xs
+
+
+--> Preguntar si es valido usar [2..10]
+--> Pregungar si cuando me pone los require tengo que hacer algo
+
+--> Ejericicio 17
+preguntar pq la funcion de fibonacci no funciona para n muy grandes, eso hace que para algunos numeros yo no pueda calcular si pertenece a la funcion fibonacci
+de ultima tambion preguntar si esta bien hecho la funcion
+
