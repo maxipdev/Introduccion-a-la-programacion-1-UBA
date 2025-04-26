@@ -25,3 +25,4 @@ miLength (_:xs) = 1 + miLength xs
 preguntar pq la funcion de fibonacci no funciona para n muy grandes, eso hace que para algunos numeros yo no pueda calcular si pertenece a la funcion fibonacci
 de ultima tambion preguntar si esta bien hecho la funcion
 
+--> PReguntar si estan bien hechos los ejercicios finales (de la practica 4) y pregunat el tema de los parametros -> si los puedo usar como para almacenar mis valores en vez de sumarlos
