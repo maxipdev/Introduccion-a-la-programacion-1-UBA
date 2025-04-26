@@ -175,7 +175,7 @@ sumaRacionales n m = aux n m + sumaRacionales (n-1) m
 -- Ejercicio 16
 esPrimo :: Int -> Bool
 esPrimo x 
-    | x < 1 = False
+    | x < 2 = False
     |otherwise = not (tieneDivisores x 2) -- > Se pone el 2 pq el 1 es divisior de todos y se quiere ver si desde 2 hsta x-1 hay algun divisor más, se le poone el not por un tema de escritura, ya que es lo contrario a lo que devuleve tieneDivisaores lo que necesitamos para que sea primo
     where
         tieneDivisores n d 
@@ -193,24 +193,30 @@ menorDivisor n
             | otherwise = encontarDivisor n (k+1) 
 
 
--- divisores :: Int -> Int
--- divisores n = aux n 2 
---     where 
---         aux a b 
---             -- | b > a = a 
---             | mod a b == 0 = b 
---             | otherwise = aux a (b+1)
+divisores :: Int -> [Int]
+divisores n = (aux n 2 [])
+    where 
+        aux a b lista 
+            | a < b = lista
+            | mod a b == 0 = aux a (b+1) (b : lista)
+            | otherwise = aux a (b+1) lista
 
-divisores :: Int -> [Int] -- > Preguntar si esto es valido
-divisores n = [d | d <- [2 .. n], mod n d == 0] -- > quito el 1 pq ya se q es dvisor de tosos y no me sirve para mi lógica
+-- divisores :: Int -> [Int] -- > No es valido hacerlo, por lo tanto, cambio l amanera de ver los divisores
+-- divisores n = [d | d <- [2 .. n], mod n d == 0] -- > quito el 1 pq ya se q es dvisor de tosos y no me sirve para mi lógica
+
+-- Creo el lenght propio:
+len:: [t] -> Int
+len [] = 0
+len (_:xs) = 1 + len xs 
+
 
 verificarLista :: [Int] -> [Int] -> Bool
 verificarLista h j 
     | h == j = False
     | otherwise = sumatoria_2 h j len_h len_j -- > datos que necesita la funcion sumatoria_2
     where 
-        len_h = (length h) -1
-        len_j = (length j) -1
+        len_h = (len h) -1
+        len_j = (len j) -1
         -- ------------
         sumatoria_2 h j len_h var_j
             | var_j < 0 = False
@@ -232,18 +238,28 @@ sonCoprimos x y
         divisores_x = divisores x 
         divisores_y = divisores y 
 
-nEsimoPrimo:: Int -> Int
-nEsimoPrimo n = listaDeNumerosPrimos !! (n-1)
-    where
-        listaDeNumerosPrimos = [d | d <- [2..(definirHasta n)], esPrimo d]
-        definirHasta 1 = 10 
-        definirHasta n = n*n 
+
+
+-- nEsimoPrimo2:: Int -> Int
+-- nEsimoPrimo2 n = listaDeNumerosPrimos !! (n-1)
+--     where
+--         listaDeNumerosPrimos = [d | d <- [2..(definirHasta n)], esPrimo d]
+--         definirHasta 1 = 10 
+--         definirHasta n = n*n 
+
+
+nEsimoPrimo :: Int -> Int
+nEsimoPrimo n = contadorPrimos 1 n 0 -- > Es el num y la cantidad hsta la que hay que llegar y las veces son las posiciones de los primos
+{--empieza desde 2 ya q es el primer primo --}
+
+contadorPrimos :: Int -> Int -> Int -> Int
+contadorPrimos numero cantidad veces
+    | veces == cantidad = numero - 1 -- > Le resto porque al llamar a la función le sume un numero que no iba
+    | esPrimo numero = contadorPrimos (numero + 1) cantidad (veces + 1)
+    | otherwise = contadorPrimos (numero + 1) cantidad veces
+
 
 -- Ejercicio 17
-len:: [t] -> Int
-len [] = 0
-len (_:xs) = 1 + len xs 
-
 index:: [a] -> Int -> a 
 index (x:_) 0 = x -- > Da el primer numero
 index (_:xs) n = index xs (n-1) -- > Va cortando la lista, le va quitando el primer numero y cuando llega a 0 da ese numero
@@ -280,19 +296,59 @@ mayorDigitoPar n
             | otherwise = aux (resto a) maxPar
 
 -- Ejericio 19
-esSumaINicioPrimos :: Int -> [Int]
-esSumaINicioPrimos n = primos (k n)
+esSumaInicialDePrimos :: Int -> Bool -- > Tambien hay otro ejemplo en la clase del 21/04/2025 (mia)
+esSumaInicialDePrimos n = aux n 0 2 -- > Empieza con 2 pq es el primer primo
     where 
-        k 1 = 10
-        k n = n * n 
-        primos k = [d | d <- [2 .. k], esPrimo d]
-        sumaPrimos i = primos !! 0 + primos !! i 
-        sumaPrimos i
-            | i < 0 = 0
-            | otherwise = primos !! i + sumaPrimos (i-1)
-        verificador n i 
-            | n > primos !! i = sumaPrimos i 
-            | otherwise verificador n (i-1)
+        aux n suma actual 
+            | suma == n = True
+            | suma > n = False 
+            | esPrimo actual = aux n (suma + actual) (actual+1)
+            | otherwise = aux n suma (actual +1)
+
+-- Ejericicio 20
+tomaValorMax:: Int -> Int -> Int
+tomaValorMax n1 n2 = buscarMax n2 0 n1 0 -- > El valorActual = n1 ya que es el primer valro que tiene la función
+
+buscarMax:: Int -> Int -> Int -> Int -> Int
+buscarMax hasta mejorSuma valorActual mejorValor
+    | valorActual > hasta = mejorValor -- > Da el mejor valor encontrado, es > pq tambien hay que verificar con el caso de que valorActual == hasta
+    | (division) > mejorSuma = buscarMax hasta (division) (valorActual +1) valorActual-- > Se aumneto el mejor suma y aumento el valor actual
+    | otherwise = buscarMax hasta mejorSuma (valorActual +1) mejorValor -- > Solo aumenta el valor actual
+    where 
+        division = (sumaDivisores valorActual 1)
+
+sumaDivisores:: Int -> Int -> Int
+sumaDivisores n x
+    | n < x = 0 
+    | mod n x == 0 = x + sumaDivisores n (x+1)
+    | otherwise = sumaDivisores n (x+1)
+
+-- Ejercicio 21
+pitagoras :: Int -> Int -> Int -> Int
+pitagoras m n r = buscarPares_p 0 m 0 n r 
+
+buscarPares_p :: Int -> Int -> Int -> Int -> Int -> Int 
+buscarPares_p actual_m hasta_m actual_n hasta_n r
+    | p > hasta_m = 0
+    | otherwise = (buscarPares_q p actual_n hasta_n r) + (buscarPares_p (p + 1) hasta_m 0 hasta_n r)
+    where 
+        p = actual_m
+        q = actual_n
+
+buscarPares_q :: Int -> Int -> Int -> Int -> Int
+buscarPares_q actual_m actual_n hasta_n r  
+    | q > hasta_n = 0
+    | (p^2 + q^2) <= r^2 = 1 + (buscarPares_q p (q + 1) hasta_n r)  
+    | otherwise = buscarPares_q p (q + 1) hasta_n r 
+    where 
+        q = actual_n
+        p = actual_m 
+
+
+
+
+
+
 
 
 
