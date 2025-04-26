@@ -74,7 +74,7 @@ esPrimo n = menorDivisor_2 n == n
 
 esSumaInicialDePrimos:: Int -> Bool
 esSumaInicialDePrimos 0 = False
-esSumaInicialDePrimos n = esSumaInicialDePrimosAux
+esSumaInicialDePrimos n = esSumaInicialDePrimosAux n 2
 
 esSumaInicialDePrimosAux:: Int -> Int -> Bool
 esSumaInicialDePrimosAux n k 
