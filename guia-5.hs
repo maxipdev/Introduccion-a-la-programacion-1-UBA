@@ -115,13 +115,20 @@ productoria:: [Int] -> Int
 productoria [] = 1 -- > Pq al multplicar por 1 da el mismo numero
 productoria (x:xs) = x * productoria xs
 
-mayor:: [Int] -> Int -- > Tengo que buscar el mayor elemento de la lista
-mayor (x:xs) = aux xs x 
+maximo:: [Int] -> Int -- > Tengo que buscar el mayor elemento de la lista
+maximo (x:xs) = aux xs x 
     where 
         aux [] mayor = mayor
         aux (n:ns) mayor
             | n > mayor = aux ns n 
             | otherwise = aux ns mayor
+
+-- Otra manera
+maximo_2:: [Int] -> Int
+maximo_2 [x] = x
+maximo_2 (x:y:xs)
+    | x > y = maximo_2 (x: xs)
+    | otherwise = maximo_2 (y: xs)
 
 sumarN :: Int -> [Int] -> [Int]
 sumarN _ [] = []
@@ -150,8 +157,82 @@ multiplosDeN:: Int -> [Int] -> [Int]
 multiplosDeN _ [] = []
 multiplosDeN n (x:xs) = (n*x) : (multiplosDeN n xs)
 
+
+-- >>>>>  FALTA TERMINAR ->>>>>>>>>>>>>>
+-- ordenar:: [Int] -> [Int]
+-- ordenar lista = ordenar_aux lista
+
+-- ordenar_aux:: [Int] -> [Int]
+-- ordenar_aux [x] = [x]
+-- ordenar_aux lista = (masGrande) : (quitar masGrande lista) -- > agarro el mas grande y despues lo quirto de la prxima lista en la recur
+--     where 
+--         masGrande = maximo lista
+
+
 ordenar:: [Int] -> [Int]
-ordenar (x:xs) = verificar x xs 
+ordenar [x] = [x]
+ordenar lista = ordenar (quitar (maximo lista) lista) ++ [maximo lista]
+
+-- Ejercicio 4
+-- A)
+sacarBlancosRepetidos:: [Char] -> [Char] 
+sacarBlancosRepetidos [] = []
+sacarBlancosRepetidos [a] = [a]
+sacarBlancosRepetidos (x:y:xs) 
+    | x == ' ' && y == ' ' = x : sacarBlancosRepetidos xs -- > Quito el elemento vacio y vuelvo a llamar a la función 
+    | otherwise = [x, y] ++ (sacarBlancosRepetidos xs)  
+
+-- B)
+contarPalabras:: [Char] -> Int
+contarPalabras [] = 0
+contarPalabras lista 
+    | head nuevaLista == ' ' = contadorEspacios (eliminarUltimoEspacio (tail nuevaLista)) 1 -- > Ya tiene una palabra apenas comienza 
+    | otherwise = contadorEspacios (eliminarUltimoEspacio nuevaLista) 1
     where 
-        verificar x (n:ns) mayor
-            | n > x = verificar 
+        nuevaLista = sacarBlancosRepetidos lista
+
+eliminarUltimoEspacio:: [Char] -> [Char] -- > Elimina el ultimo elemento si es un espacio 
+eliminarUltimoEspacio [] = []
+eliminarUltimoEspacio (x:xs)
+    | x == ' ' && xs == [] = []
+    | otherwise = x: (eliminarUltimoEspacio xs)
+
+contadorEspacios :: [Char] -> Int -> Int
+contadorEspacios [] cantidad = cantidad
+contadorEspacios (x:xs) cantidad
+    | x == ' ' = contadorEspacios xs (cantidad + 1)
+    | otherwise = contadorEspacios xs cantidad
+
+
+-- Ejercicio 6
+-- A)
+type Texto = [Char]
+type Nombre = Texto
+type Telefono = Texto
+type Contacto = (Nombre, Telefono)
+type ContactosTel = [Contacto]
+
+-- enLosContactos ::  Nombre -> ContactosTel -> Bool
+-- enLosContactos nombre ContactosTel 
+--     where 
+--         aux nombre elemento
+--             | nombre == fst ContactosTel 
+
+-- enLosContactos:: Nombre -> ContactosTel -> Bool
+-- enLosContactos _ [] = False
+-- enLosContactos nombre (x:xs)
+--     | fst x == nombre = True
+--     | otherwise = enLosContactos nombre xs 
+
+-- enLosContactos:: Nombre -> ContactosTel -> Bool
+-- enLosContactos _ [] = False
+-- enLosContactos nombre ((nombreActual, telefonoActual):xs)
+--     | nombreActual == nombre = True
+--     | otherwise = enLosContactos nombre xs 
+
+-- enLosContactos:: Nombre -> ContactosTel -> Bool
+-- enLosContactos _ [] = False
+-- enLosContactos nombre ((nombreActual, _):xs)
+--     | nombreActual == nombre = True
+--     | otherwise = enLosContactos nombre xs 
+
