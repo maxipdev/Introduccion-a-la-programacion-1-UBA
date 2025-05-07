@@ -42,7 +42,7 @@ codificarFrase::[Char] -> [(Char, Char)] -> [Char]
 codificarFrase [] _ = []
 codificarFrase (x:xs) mapeo 
     | (hayQueCodificar x mapeo) = (codificar x mapeo) : codificarFrase xs mapeo -- > Vuelvo a mirar
-    | otherwise = codificarFrase xs mapeo -- > Miro el siguiente elemento
+    | otherwise = x: codificarFrase xs mapeo -- > Miro el siguiente elemento
 
 codificar:: Char -> [(Char, Char)] -> Char 
 codificar c ((a,b):ys)
