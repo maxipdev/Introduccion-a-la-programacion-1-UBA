@@ -1,9 +1,4 @@
-preguntas si es valido hacer lo que hice en el ejericio 1.10 version 2 de la guia 7
+preguntas si es valido hacer lo que hice en el ejericio 1.10 version 2 de la guia 7---> Verificado por guia
 
-preguntar como se tipa el ejercico 4 de la guia 7
 
 preguntar lo de inout, in y out --> mas q nada del primer ejercicio de matrices de la guia 7
-
-
-preguntar als diferencias de lo que se vio en la teorica de las listas y los arrgelos, y más q nada con el tema del espacio en la memoria
-
