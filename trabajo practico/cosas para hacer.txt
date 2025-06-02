@@ -1,0 +1,10 @@
+ # Ejercici 6
+ cambiar por str los valores de la funcion, cuando los cambia, ya que es lo que pide la especificacion
+ fijarse bien los tipados
+ arreglar los problemas de los adyacentes multiples
+
+ fijarse bien los casos de test
+
+
+ mirar las diferencias de los in out en las funciones, ya que dice que en la de caminos es in y en la de descubiri es inout --> Preguntar si tengo que respetar eso o yo puedo hacer lo que quiera con la funcion???
+ --> igual hacen lo mismo, pero preguntar por las dudas
