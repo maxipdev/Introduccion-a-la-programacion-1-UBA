@@ -1,0 +1,132 @@
+# PARA ESTE PARCIAL EN LA ENTREGA NO SE SUBIERON QUE TEST SE USARON PARA LA CORRECCION
+# SOLO ESTA DISPONIBLE EL RESLTADO DE CADA UNO
+
+
+Ejecucion de los tests
+tema1-test-ej1.py.compilacion.out
+Puntaje del ej: 1.8 / 2
+
+test_lista_vacia_devuelve_cero (__main__.Ej1Test.test_lista_vacia_devuelve_cero) ... ok
+test_no_hay_parejas (__main__.Ej1Test.test_no_hay_parejas) ... ok
+test_no_hay_parejas_con_si_mismo (__main__.Ej1Test.test_no_hay_parejas_con_si_mismo) ... ok
+test_parejas_con_numeros_negativos (__main__.Ej1Test.test_parejas_con_numeros_negativos) ... ok
+test_parejas_repetidas_cuenta_todas (__main__.Ej1Test.test_parejas_repetidas_cuenta_todas) ... FAIL
+test_parejas_suman_valores_varios (__main__.Ej1Test.test_parejas_suman_valores_varios) ... ok
+test_suman_cero (__main__.Ej1Test.test_suman_cero) ... ok
+test_todos_forman_pareja (__main__.Ej1Test.test_todos_forman_pareja) ... ok
+test_todos_negativos (__main__.Ej1Test.test_todos_negativos) ... ok
+test_un_elemento_no_puede_formar_pareja (__main__.Ej1Test.test_un_elemento_no_puede_formar_pareja) ... ok
+
+======================================================================
+FAIL: test_parejas_repetidas_cuenta_todas (__main__.Ej1Test.test_parejas_repetidas_cuenta_todas)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./env/lib/python3.12/site-packages/timeout_decorator/timeout_decorator.py", line 82, in new_function
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "./correcciones/parcial-python-tm/penacino_maximo_47294314_X/tema1-test-ej1.py", line 38, in test_parejas_repetidas_cuenta_todas
+    self.assertEqual(res, 10)
+AssertionError: 0 != 10
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.006s
+
+FAILED (failures=1)
+
+tema1-test-ej2.py.compilacion.out
+Puntaje del ej: 2.5 / 2.5
+
+test_cliente_al_final_de_la_cola_se_retira (__main__.Ej2Test.test_cliente_al_final_de_la_cola_se_retira) ... ok
+test_cliente_al_inicio_de_la_cola_se_retira (__main__.Ej2Test.test_cliente_al_inicio_de_la_cola_se_retira) ... ok
+test_cliente_al_medio_de_la_cola_se_retira (__main__.Ej2Test.test_cliente_al_medio_de_la_cola_se_retira) ... ok
+test_cliente_al_medio_de_la_cola_se_retira_y_el_resto_quedan (__main__.Ej2Test.test_cliente_al_medio_de_la_cola_se_retira_y_el_resto_quedan) ... ok
+test_selecciona_al_primer_cliente_con_todos_candidatos (__main__.Ej2Test.test_selecciona_al_primer_cliente_con_todos_candidatos) ... ok
+test_selecciona_al_primer_cliente_con_todos_candidatos_y_el_resto_quedan (__main__.Ej2Test.test_selecciona_al_primer_cliente_con_todos_candidatos_y_el_resto_quedan) ... ok
+test_selecciona_al_primer_cliente_con_varios_candidatos (__main__.Ej2Test.test_selecciona_al_primer_cliente_con_varios_candidatos) ... ok
+test_selecciona_al_primer_cliente_con_varios_candidatos_y_el_resto_quedan (__main__.Ej2Test.test_selecciona_al_primer_cliente_con_varios_candidatos_y_el_resto_quedan) ... ok
+test_unico_cliente_se_retira (__main__.Ej2Test.test_unico_cliente_se_retira) ... ok
+test_unico_cliente_se_retira_y_cola_queda_vacia (__main__.Ej2Test.test_unico_cliente_se_retira_y_cola_queda_vacia) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.008s
+
+OK
+
+tema1-test-ej3.py.compilacion.out
+Puntaje del ej: 2.5 / 2.5
+
+test_intercambiar_e_invertir_columnas_2x3 (__main__.Ej1Test.test_intercambiar_e_invertir_columnas_2x3) ... ok
+test_intercambiar_e_invertir_columnas_3x2 (__main__.Ej1Test.test_intercambiar_e_invertir_columnas_3x2) ... ok
+test_intercambiar_e_invertir_columnas_con_ceros (__main__.Ej1Test.test_intercambiar_e_invertir_columnas_con_ceros) ... ok
+test_intercambiar_e_invertir_columnas_con_negativos (__main__.Ej1Test.test_intercambiar_e_invertir_columnas_con_negativos) ... ok
+test_intercambiar_e_invertir_columnas_en_matriz_1x2 (__main__.Ej1Test.test_intercambiar_e_invertir_columnas_en_matriz_1x2) ... ok
+test_intercambiar_e_invertir_columnas_en_matriz_2x2 (__main__.Ej1Test.test_intercambiar_e_invertir_columnas_en_matriz_2x2) ... ok
+test_intercambiar_e_invertir_columnas_en_matriz_3x10 (__main__.Ej1Test.test_intercambiar_e_invertir_columnas_en_matriz_3x10) ... ok
+test_intercambiar_e_invertir_columnas_en_matriz_3x3 (__main__.Ej1Test.test_intercambiar_e_invertir_columnas_en_matriz_3x3) ... ok
+test_intercambiar_e_invertir_columnas_en_matriz_8x3 (__main__.Ej1Test.test_intercambiar_e_invertir_columnas_en_matriz_8x3) ... ok
+test_intercambiar_e_invertir_columnas_iguales (__main__.Ej1Test.test_intercambiar_e_invertir_columnas_iguales) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.008s
+
+OK
+
+tema1-test-ej4.py.compilacion.out
+Puntaje del ej: 1.8 / 2
+
+test_no_modifica_inputs (__main__.Ej1Test.test_no_modifica_inputs) ... ok
+test_residencia_mantenida_en_una_localidad (__main__.Ej1Test.test_residencia_mantenida_en_una_localidad) ... ok
+test_residencia_mantenida_en_varias_localidades (__main__.Ej1Test.test_residencia_mantenida_en_varias_localidades) ... ok
+test_residencias_cruzadas_no_mantenidas (__main__.Ej1Test.test_residencias_cruzadas_no_mantenidas) ... ok
+test_sin_habitantes (__main__.Ej1Test.test_sin_habitantes) ... ok
+test_sin_residencia_mantenida (__main__.Ej1Test.test_sin_residencia_mantenida) ... ok
+test_todos_mantienen_residencia (__main__.Ej1Test.test_todos_mantienen_residencia) ... FAIL
+test_todos_se_mudan (__main__.Ej1Test.test_todos_se_mudan) ... ok
+test_una_sola_persona_mantiene (__main__.Ej1Test.test_una_sola_persona_mantiene) ... ok
+test_una_sola_persona_se_muda (__main__.Ej1Test.test_una_sola_persona_se_muda) ... ok
+
+======================================================================
+FAIL: test_todos_mantienen_residencia (__main__.Ej1Test.test_todos_mantienen_residencia)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "./env/lib/python3.12/site-packages/timeout_decorator/timeout_decorator.py", line 82, in new_function
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "./correcciones/parcial-python-tm/penacino_maximo_47294314_X/tema1-test-ej4.py", line 90, in test_todos_mantienen_residencia
+    self.assertEqual(mantuvieron_residencia(censo1, censo2), esperado)
+AssertionError: {'Flo[18 chars] 'Quilmes': 2, 'La Plata': 1, 'Avellaneda': 1, 'San Miguel': 1} != {'Flo[18 chars] 'Quilmes': 3, 'La Plata': 1, 'Avellaneda': 1, 'San Miguel': 1}
+  {'Avellaneda': 1,
+   'Florencio Varela': 1,
+   'La Plata': 1,
+-  'Quilmes': 2,
+?             ^
+
++  'Quilmes': 3,
+?             ^
+
+   'San Miguel': 1}
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.009s
+
+FAILED (failures=1)
+
+mchoice.json-ej5.compilacion.out
+Puntaje del ej: 0.0 / 0.5
+
+mchoice ej5: respuesta del alumno=2, respuesta correcta=3
+
+Ran 1 test in 0 seconds
+
+FAILED (failures=1)
+
+mchoice.json-ej6.compilacion.out
+Puntaje del ej: 0.0 / 0.5
+
+mchoice ej6: respuesta del alumno=2, respuesta correcta=1
+
+Ran 1 test in 0 seconds
+
+FAILED (failures=1)
+
+FIN

@@ -1,0 +1,5 @@
+/__pycache__
+/htmlcov
+.coverage
+tablero_visible.txt
+tablero.txt
